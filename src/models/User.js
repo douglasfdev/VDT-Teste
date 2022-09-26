@@ -40,6 +40,9 @@ export default class User extends Model {
     }, {
       sequelize,
     });
+
+    this.addHook('beforeSave');
+
     return this;
   }
 }
