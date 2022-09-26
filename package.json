@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "migrate": "sequelize db:migrate:undo:all &&  sequelize db:migrate",
     "start": "node index.js",
     "dev": "nodemon server.js"
   },
