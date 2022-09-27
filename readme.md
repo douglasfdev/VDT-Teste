@@ -24,6 +24,20 @@ Para rodar o Servidor tenha o NPM ou o YARN instalados na máquina.
 * `npm start` ou `yarn start`
 * `npm run dev` ou `yarn dev`
 
+
+## Variáveis de Ambiente
+
+Para rodar esse projeto, você vai precisar adicionar as seguintes variáveis de ambiente no seu .env
+
+`DATABASE`
+`DATABASE_HOST`
+`DATABASE_PORT`
+`DATABASE_USERNAME`
+`DATABASE_PASSWORD`
+
+`TOKEN_SECRET`
+`TOKEN_EXPIRATION`
+
 ## Documentação da API
 
 #### Pegar o Token de Autenticação
