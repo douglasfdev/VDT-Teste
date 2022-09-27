@@ -25,7 +25,7 @@ class UserController {
 
   async show(req, res) {
     try {
-      const user = await User.findByPk(req.params.id);
+      const user = await User.findByPk(req.userId);
 
       const { id, nome, email } = user;
       return res.json({ id, nome, email });
@@ -45,7 +45,8 @@ class UserController {
       }
 
       const novosDados = await user.update(req.body);
-      return res.json(novosDados);
+      const { id, nome, email } = novosDados;
+      return res.json({ id, nome, email });
     } catch (e) {
       return res.status(400).json({
         erros: e.errors.map((err) => err.message),
