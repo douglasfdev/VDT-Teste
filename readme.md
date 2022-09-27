@@ -21,5 +21,33 @@
 
 ### Comandos
 Para rodar o Servidor tenha o NPM ou o YARN instalados na máquina.
-* `$ npm start` ou `$ yarn start`
-* `$ npm run dev` ou `$yarn dev`
+* `npm start` ou `yarn start`
+* `npm run dev` ou `yarn dev`
+
+## Documentação da API
+
+#### Pegar o Token de Autenticação
+```http
+  POST /tokens/
+```
+#### Retorna todos os Usuários
+
+```http
+  GET http://localhost:3001/
+```
+| Parâmetro   | Tipo       | Descrição                           |
+| :---------- | :--------- | :---------------------------------- |
+| `authentication` | `string` | **Obrigatório**. O Token da API no Header|
+
+#### Retorna um Usuário
+
+```http
+  GET /${id}
+```
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `id`      | `string` | **Obrigatório**. O ID do item que você quer |
+
+#### add(num1, num2)
+
+Recebe dois números e retorna a sua soma.
