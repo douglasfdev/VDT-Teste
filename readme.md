@@ -29,14 +29,14 @@ Para rodar o Servidor tenha o NPM ou o YARN instalados na máquina.
 
 Para rodar esse projeto, você vai precisar adicionar as seguintes variáveis de ambiente no seu .env
 
-`DATABASE`
-`DATABASE_HOST`
-`DATABASE_PORT`
-`DATABASE_USERNAME`
-`DATABASE_PASSWORD`
+`DATABASE`  \
+`DATABASE_HOST` \
+`DATABASE_PORT` \
+`DATABASE_USERNAME` \
+`DATABASE_PASSWORD` \
 
-`TOKEN_SECRET`
-`TOKEN_EXPIRATION`
+`TOKEN_SECRET`  \
+`TOKEN_EXPIRATION`  \
 
 ## Documentação da API
 
