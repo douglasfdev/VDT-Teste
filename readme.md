@@ -11,7 +11,7 @@
 * Sequelize
 * BcryptJS
 * Dotenv
-* JSonWebToken
+* JsonWebToken
 
 ## Ambiente de Produção
 * ESLint AirBnb
