@@ -61,7 +61,7 @@ class UserController {
         });
       }
 
-      const user = await User.findByPk(req.params.id);
+      const user = await User.findByPk(req.userId);
       if (!user) {
         return res.status(400).json({
           erros: ['Usuário não existe'],
