@@ -8,7 +8,7 @@ class UserController {
       return res.json({ id, nome, email });
     } catch (e) {
       return res.status(400).json({
-        erros: e.errors.map((err) => err.message),
+        errors: e,
       });
     }
   }
@@ -19,7 +19,9 @@ class UserController {
 
       return res.json(users);
     } catch (e) {
-      return res.json(null);
+      return res.json({
+        errors: e,
+      });
     }
   }
 
@@ -40,7 +42,7 @@ class UserController {
 
       if (!user) {
         return res.status(400).json({
-          erros: ['Usuário não existe'],
+          errors: ['Usuário não existe'],
         });
       }
 
@@ -49,24 +51,23 @@ class UserController {
       return res.json({ id, nome, email });
     } catch (e) {
       return res.status(400).json({
-        erros: e.errors.map((err) => err.message),
+        errors: e.errors.map((err) => err.message),
       });
     }
   }
 
-  // Delete
   async delete(req, res) {
     try {
       if (!req.params.id) {
         return res.status(400).json({
-          erros: ['ID Não enviado'],
+          errors: ['ID Não enviado'],
         });
       }
 
       const user = await User.findByPk(req.userId);
       if (!user) {
         return res.status(400).json({
-          erros: ['Usuário não existe'],
+          errors: ['Usuário não existe'],
         });
       }
 
@@ -76,7 +77,7 @@ class UserController {
       });
     } catch (e) {
       return res.status(400).json({
-        erros: e.errors.map((err) => err.message),
+        errors: e.errors.map((err) => err.message),
       });
     }
   }
