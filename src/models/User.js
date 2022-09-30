@@ -57,4 +57,8 @@ export default class User extends Model {
   passwordIsValid(password) {
     return compare(password, this.password_hash);
   }
+
+  static associate(models) {
+    this.hasMany(models.Corridas, { foreignKey: 'user_id' });
+  }
 }

@@ -1,9 +1,9 @@
 import Sequelize, { Model } from 'sequelize';
 
-export default class ReservesController extends Model {
+export default class Reserves extends Model {
   static init(sequelize) {
     super.init({
-      data: {
+      date: {
         type: Sequelize.DATE,
         defaultValue: '',
       },
