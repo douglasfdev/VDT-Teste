@@ -1,14 +1,16 @@
 import { Router } from 'express';
-import userController from '../controllers/UserController';
+import CorridasController from '../controllers/CorridasController';
+import UserController from '../controllers/UserController';
 import loginRequired from '../middlewares/loginRequired';
 
 const router = new Router();
 
-router.get('/', userController.index);
-router.get('/:id', userController.show);
+router.get('/', UserController.index);
+router.get('/:id', UserController.show);
 
-router.post('/', loginRequired, userController.store);
-router.put('/', loginRequired, userController.update);
-router.delete('/', loginRequired, userController.delete);
+router.post('/corrida/', loginRequired, CorridasController.store);
+router.post('/', loginRequired, UserController.store);
+router.put('/', loginRequired, UserController.update);
+router.delete('/', loginRequired, UserController.delete);
 
 export default router;

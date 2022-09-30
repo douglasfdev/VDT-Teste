@@ -17,7 +17,6 @@ export default class Corridas extends Model {
         type: Sequelize.STRING,
         defaultValue: '',
         unique: {
-          boolean: true,
           msg: 'Placa já existe',
         },
         validate: {
