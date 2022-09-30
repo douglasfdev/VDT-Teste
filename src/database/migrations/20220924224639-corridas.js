@@ -1,7 +1,7 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable(
-      'alunos',
+      'corridas',
       {
         id: {
           type: Sequelize.INTEGER,
@@ -9,28 +9,20 @@ module.exports = {
           autoIncrement: true,
           primaryKey: true,
         },
-        nome: {
+        carro: {
           type: Sequelize.STRING,
           allowNull: false,
         },
-        sobrenome: {
+        placa: {
           type: Sequelize.STRING,
           allowNull: false,
         },
-        email: {
+        motorista: {
           type: Sequelize.STRING,
           allowNull: false,
         },
-        idade: {
-          type: Sequelize.INTEGER,
-          allowNull: false,
-        },
-        peso: {
-          type: Sequelize.FLOAT,
-          allowNull: false,
-        },
-        altura: {
-          type: Sequelize.FLOAT,
+        finalizada: {
+          type: Sequelize.BOOLEAN,
           allowNull: false,
         },
         created_at: {
@@ -46,6 +38,6 @@ module.exports = {
   },
 
   down: async (queryInterface) => {
-    await queryInterface.dropTable('alunos');
+    await queryInterface.dropTable('corridas');
   },
 };

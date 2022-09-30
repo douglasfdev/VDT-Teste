@@ -8,7 +8,7 @@ class UserController {
       return res.json({ id, nome, email });
     } catch (e) {
       return res.status(400).json({
-        errors: e,
+        errors: e.errors.map((err) => err.message),
       });
     }
   }
@@ -20,7 +20,7 @@ class UserController {
       return res.json(users);
     } catch (e) {
       return res.json({
-        errors: e,
+        errors: e.errors.map((err) => err.message),
       });
     }
   }
@@ -60,7 +60,7 @@ class UserController {
     try {
       if (!req.params.id) {
         return res.status(400).json({
-          errors: ['ID Não enviado'],
+          errors: ['ID não enviado'],
         });
       }
 
@@ -72,9 +72,7 @@ class UserController {
       }
 
       await user.destroy();
-      return res.json({
-        msg: 'Usuário apagado com sucesso!',
-      });
+      return res.json({ msg: 'Usuário apagado com sucesso!' });
     } catch (e) {
       return res.status(400).json({
         errors: e.errors.map((err) => err.message),
