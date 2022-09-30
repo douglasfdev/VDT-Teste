@@ -18,7 +18,7 @@ module.exports = {
       type: Sequelize.INTEGER,
       allowNull: true,
       references: {
-        model: 'alunos',
+        model: 'users',
         key: 'id',
       },
       onDelete: 'SET NULL',
