@@ -38,6 +38,14 @@ export default class Corridas extends Model {
         type: Sequelize.BOOLEAN,
         defaultValue: false,
       },
+      user_id: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
+        references: {
+          model: 'users',
+          key: 'id',
+        },
+      },
     }, {
       sequelize,
       tableName: 'corridas',

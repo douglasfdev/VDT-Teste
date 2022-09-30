@@ -19,7 +19,10 @@ class CorridasController {
 
   async index(req, res) {
     try {
-      const corrida = await Corridas.findAll({ attributes: ['id', 'carro', 'placa', 'motorista'] });
+      const corrida = await Corridas.findAll({
+        attributes: ['id', 'carro', 'placa', 'motorista', 'finalizada'],
+        order: [['id', 'DESC']],
+      });
       return res.json(corrida);
     } catch (e) {
       return res.status(400).json({

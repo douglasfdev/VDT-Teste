@@ -1,4 +1,4 @@
-import jwt from 'jsonwebtoken';
+import { verify } from 'jsonwebtoken';
 import User from '../models/User';
 
 export default async (req, res, next) => {
@@ -13,7 +13,7 @@ export default async (req, res, next) => {
   const [, token] = authorization.split(' ');
 
   try {
-    const data = jwt.verify(token, process.env.TOKEN_SECRET);
+    const data = verify(token, process.env.TOKEN_SECRET);
     const { id, email } = data;
 
     const user = await User.findOne({

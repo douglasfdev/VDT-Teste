@@ -1,4 +1,5 @@
 import User from '../models/User';
+import Corridas from '../models/Corridas';
 
 class UserController {
   async store(req, res) {
@@ -15,12 +16,15 @@ class UserController {
 
   async index(req, res) {
     try {
-      const users = await User.findAll({ attributes: ['id', 'nome', 'email', 'finalizada'] });
+      const users = await User.findAll({
+        attributes: ['id', 'nome', 'email'],
+        order: [['id', 'DESC']],
+      });
 
       return res.json(users);
     } catch (e) {
       return res.json({
-        errors: e.errors.map((err) => err.message),
+        errors: e,
       });
     }
   }
