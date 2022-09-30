@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import CorridasController from '../controllers/CorridasController';
 import UserController from '../controllers/UserController';
+import ReserveController from '../controllers/ReserveController';
 import loginRequired from '../middlewares/loginRequired';
 
 const router = new Router();
@@ -9,8 +10,8 @@ router.get('/', UserController.index);
 router.get('/corrida/', loginRequired, CorridasController.show);
 router.get('/corrida/:id', loginRequired, CorridasController.getById);
 router.get('/:id', UserController.show);
+router.get('/corrida/:id/reserve/', loginRequired, ReserveController.index);
 
-// router.post('/corrida/:id/reserve', loginRequired, ReserveController.store);
 router.post('/corrida/', loginRequired, CorridasController.store);
 router.post('/', loginRequired, UserController.store);
 

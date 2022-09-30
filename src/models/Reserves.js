@@ -19,6 +19,6 @@ export default class ReservesController extends Model {
   }
 
   static associate(models) {
-    this.hasMany(models.Corridas, { foreignKey: 'corridas_id' });
+    this.hasMany(models.Corridas, { foreignKey: 'user_id' });
   }
 }
