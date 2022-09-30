@@ -28,6 +28,18 @@ class CorridasController {
     }
   }
 
+  async getById(req, res) {
+    try {
+      const corrida = await Corridas.findByPk(req.params.id);
+      const { corrida_id, carro, placa } = corrida;
+      return res.json({ corrida_id, carro, placa });
+    } catch (e) {
+      return res.status(400).json({
+        errors: e.errors.map((err) => err.message),
+      });
+    }
+  }
+
   async udpate(req, res) {
     try {
       const corrida = await Corridas.findByPk(req.params.id);

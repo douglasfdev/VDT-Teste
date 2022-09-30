@@ -3,7 +3,7 @@ import Reserves from '../models/Reserves';
 import User from '../models/User';
 import Corridas from '../models/Corridas';
 
-class CorridasController {
+class ReserveController {
   async store(req, res) {
     try {
       const { email = '', password = '' } = req.body;
@@ -41,4 +41,4 @@ class CorridasController {
   }
 }
 
-export default new CorridasController();
+export default new ReserveController();

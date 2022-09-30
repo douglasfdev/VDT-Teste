@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "migrate": "sequelize db:migrate:undo:all &&  sequelize db:migrate",
+    "migrate": "sequelize db:migrate:undo:all &&  sequelize db:migrate && sequelize db:seed:all",
     "start": "node dist/src/server.js",
     "dev": "nodemon src/server.js",
     "build": "sucrase ./src -d ./dist --transforms imports"

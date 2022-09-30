@@ -13,7 +13,12 @@ export default class ReservesController extends Model {
       },
     }, {
       sequelize,
+      tableName: 'reserves',
     });
     return this;
+  }
+
+  static associate(models) {
+    this.hasMany(models.Corridas, { foreignKey: 'corridas_id' });
   }
 }
