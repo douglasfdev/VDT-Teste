@@ -7,8 +7,8 @@ import loginRequired from '../middlewares/loginRequired';
 const router = new Router();
 
 router.get('/', UserController.index);
-router.get('/corrida/', loginRequired, CorridasController.show);
-router.get('/corrida/:id', loginRequired, CorridasController.getById);
+router.get('/corrida/', loginRequired, CorridasController.index);
+router.get('/corrida/:id', loginRequired, CorridasController.show);
 router.get('/:id', UserController.show);
 router.get('/corrida/:id/reserve/', loginRequired, ReserveController.index);
 

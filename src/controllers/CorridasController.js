@@ -17,7 +17,7 @@ class CorridasController {
     }
   }
 
-  async show(req, res) {
+  async index(req, res) {
     try {
       const corrida = await Corridas.findAll({ attributes: ['id', 'carro', 'placa', 'motorista'] });
       return res.json(corrida);
@@ -28,14 +28,14 @@ class CorridasController {
     }
   }
 
-  async getById(req, res) {
+  async show(req, res) {
     try {
       const corrida = await Corridas.findByPk(req.params.id);
-      const { corrida_id, carro, placa } = corrida;
-      return res.json({ corrida_id, carro, placa });
+      const { motorista, carro, placa } = corrida;
+      return res.json({ motorista, carro, placa });
     } catch (e) {
       return res.status(400).json({
-        errors: e.errors.map((err) => err.message),
+        errors: e,
       });
     }
   }
