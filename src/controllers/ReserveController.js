@@ -5,8 +5,8 @@ import Corridas from '../models/Corridas';
 class ReserveController {
   async index(req, res) {
     try {
-      const { user_id } = req.params;
-      const reserve = await Reserve.findAll({ user: user_id });
+      const { id } = req.params.id;
+      const reserve = await Reserve.findAll({ user: id });
       return res.json(reserve);
     } catch (e) {
       return res.json({

@@ -6,15 +6,15 @@ module.exports = {
       autoIncrement: true,
       primaryKey: true,
     },
-    originalname: {
+    data: {
       type: Sequelize.STRING,
       allowNull: false,
     },
-    filename: {
+    status: {
       type: Sequelize.STRING,
       allowNull: false,
     },
-    aluno_id: {
+    user_id: {
       type: Sequelize.INTEGER,
       allowNull: true,
       references: {
