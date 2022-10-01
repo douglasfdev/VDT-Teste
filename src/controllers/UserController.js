@@ -23,9 +23,7 @@ class UserController {
 
       return res.json(users);
     } catch (e) {
-      return res.json({
-        errors: e,
-      });
+      return res.json({ errors: e.errors.map((err) => err.message) });
     }
   }
 
