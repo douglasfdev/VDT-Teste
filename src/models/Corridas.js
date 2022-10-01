@@ -16,7 +16,6 @@ export default class Corridas extends Model {
       placa: {
         type: Sequelize.STRING,
         defaultValue: '',
-        unique: { msg: 'Placa já existe!' },
         validate: {
           not: {
             args: [[/[A-Z]{3}[0-9][0-9A-Z][0-9]{2}/]],

@@ -5,10 +5,10 @@ class CorridasController {
     try {
       const novaCorrida = await Corridas.create(req.body);
       const {
-        id, carro, placa, motorista,
+        id, carro, placa, motorista, user_id,
       } = novaCorrida;
       return res.json({
-        id, carro, placa, motorista,
+        id, carro, placa, motorista, user_id,
       });
     } catch (e) {
       return res.status(400).json({
@@ -33,12 +33,18 @@ class CorridasController {
 
   async show(req, res) {
     try {
-      const corrida = await Corridas.findByPk(req.params.id);
+      const { id } = req.params;
+      if (!id) res.status(400).json({ errors: 'Faltando ID' });
+
+      const corrida = await Corridas.findByPk(id);
+      if (!corrida) res.status(400).json({ errors: 'Corrida não existe' });
+
       const { motorista, carro, placa } = corrida;
+
       return res.json({ motorista, carro, placa });
     } catch (e) {
       return res.status(400).json({
-        errors: e,
+        errors: e.errors.map((err) => err.message),
       });
     }
   }

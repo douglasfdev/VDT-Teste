@@ -6,12 +6,12 @@ module.exports = {
       autoIncrement: true,
       primaryKey: true,
     },
-    data: {
-      type: Sequelize.STRING,
+    date: {
+      type: Sequelize.DATE,
       allowNull: false,
     },
     status: {
-      type: Sequelize.STRING,
+      type: Sequelize.BOOLEAN,
       allowNull: false,
     },
     user_id: {
