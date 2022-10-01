@@ -10,6 +10,7 @@ router.get('/', loginRequired, UserController.index);
 router.get('/:id', loginRequired, UserController.show);
 router.get('/corrida/', loginRequired, CorridasController.index);
 router.get('/corrida/:id', loginRequired, CorridasController.show);
+router.get('/corrida/:id/reserve/', loginRequired, ReserveController.index);
 
 router.post('/corrida/:id/reserve/', loginRequired, ReserveController.store);
 router.post('/corrida/', loginRequired, CorridasController.store);

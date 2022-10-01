@@ -16,8 +16,8 @@ class ReserveController {
   async index(req, res) {
     try {
       const reserves = await Reserve.findAll({
-        attributes: ['status'],
-        order: [['status', 'DESC']],
+        attributes: ['id', 'status'],
+        order: [['id', 'DESC']],
       });
 
       return res.json(reserves);
