@@ -3,7 +3,7 @@ import Corridas from '../models/Corridas';
 class CorridasController {
   async store(req, res) {
     try {
-      const novaCorrida = await Corridas.create(req.body);
+      const novaCorrida = await Corridas.create(req.header);
       const {
         id, carro, placa, motorista, user_id,
       } = novaCorrida;

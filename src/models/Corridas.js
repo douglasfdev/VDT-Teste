@@ -29,21 +29,13 @@ export default class Corridas extends Model {
         validate: {
           len: {
             args: [3, 255],
-            msg: 'O nome deve ter entre 3 e 255 caracteres',
+            msg: 'O nome do motorista deve ter entre 3 e 255 caracteres',
           },
         },
       },
       finalizada: {
         type: Sequelize.BOOLEAN,
         defaultValue: false,
-      },
-      user_id: {
-        type: Sequelize.INTEGER,
-        allowNull: true,
-        references: {
-          model: 'users',
-          key: 'id',
-        },
       },
     }, {
       sequelize,
@@ -53,6 +45,6 @@ export default class Corridas extends Model {
   }
 
   static associate(models) {
-    this.belongsTo(models.User, { foreignKey: 'user_id' });
+    this.belongsTo(models.Reserves, { foreignKey: 'user_id' });
   }
 }

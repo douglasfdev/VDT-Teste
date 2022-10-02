@@ -1,4 +1,5 @@
 import Reserve from '../models/Reserves';
+import Corridas from '../models/Corridas';
 
 class ReserveController {
   async store(req, res) {
@@ -7,9 +8,7 @@ class ReserveController {
       const { status, date, finalizada } = reserve;
       return res.json({ status, date, finalizada });
     } catch (e) {
-      return res.json({
-        errors: e.errors.map((err) => err.message),
-      });
+      return res.json({ errors: e });
     }
   }
 
@@ -18,11 +17,15 @@ class ReserveController {
       const reserves = await Reserve.findAll({
         attributes: ['id', 'status'],
         order: [['id', 'DESC']],
+        include: {
+          model: Corridas,
+          attributes: ['motorista'],
+        },
       });
 
       return res.json(reserves);
     } catch (e) {
-      return res.json({ errors: e.errors.map((err) => err.message) });
+      return res.json({ errors: e });
     }
   }
 }

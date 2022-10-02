@@ -5,7 +5,7 @@ export default class Reserves extends Model {
     super.init({
       date: {
         type: Sequelize.DATE,
-        defaultValue: `${new Date().getHours()}:${new Date().getMinutes()}`,
+        defaultValue: `${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}`,
       },
       status: {
         type: Sequelize.BOOLEAN,
