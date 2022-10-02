@@ -1,5 +1,4 @@
 import User from '../models/User';
-import Corridas from '../models/Corridas';
 
 class UserController {
   async store(req, res) {

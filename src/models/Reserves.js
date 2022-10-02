@@ -19,6 +19,6 @@ export default class Reserves extends Model {
   }
 
   static associate(models) {
-    this.hasMany(models.Corridas, { foreignKey: 'user_id' });
+    this.belongsTo(models.Corridas, { foreignKey: 'user_id' });
   }
 }

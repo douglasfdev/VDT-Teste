@@ -59,6 +59,6 @@ export default class User extends Model {
   }
 
   static associate(models) {
-    this.hasMany(models.Corridas, { foreignKey: 'user_id' });
+    this.hasMany(models.Reserves, { foreignKey: 'user_id' });
   }
 }

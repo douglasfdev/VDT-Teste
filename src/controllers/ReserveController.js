@@ -16,10 +16,10 @@ class ReserveController {
     try {
       const reserves = await Reserve.findAll({
         attributes: ['id', 'status'],
-        order: [['id', 'DESC']],
+        order: [['id', 'DESC'], [Corridas, 'id', 'DESC']],
         include: {
           model: Corridas,
-          attributes: ['motorista'],
+          attributes: ['carro', 'placa', 'motorista'],
         },
       });
 

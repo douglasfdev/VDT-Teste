@@ -39,12 +39,11 @@ export default class Corridas extends Model {
       },
     }, {
       sequelize,
-      tableName: 'corridas',
     });
     return this;
   }
 
   static associate(models) {
-    this.belongsTo(models.Reserves, { foreignKey: 'user_id' });
+    this.hasMany(models.Reserves, { foreignKey: 'user_id' });
   }
 }
