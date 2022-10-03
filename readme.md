@@ -1,6 +1,7 @@
 # Desafio Vá de Taxi
 ## Techs, Stacks & Skills
 * NodeJS
+* SQLite
 * Express
 * Sequelize
 * BcryptJS
@@ -29,7 +30,7 @@ Você pode obter o token na rota `/tokens/` com o método POST, passando os dado
 Você vai precisar passar o token no Header da requisição HTTP como Auth escolhendo a opção Bearer Token.
 #### Pegar o Token de Autenticação
 ```http
-  POST /tokens/
+POST /tokens/
 ```
 ## Variáveis de Ambiente
 
@@ -43,91 +44,103 @@ Para rodar esse projeto, você vai precisar adicionar as seguintes variáveis de
 
 #### Rotas de Usuário
 ```http
-  GET http://localhost:3001/users
+GET http://localhost:3001/users
 ```
 | Parâmetro   | Tipo       | Descrição                           |
 | :---------- | :--------- | :---------------------------------- |
-| `authentication` | `string` | **Obrigatório**. O Token da API no Header|
+| `authentication` | `string` | **Obrigatório**. O Token passado como Bearer da API no Header|
 
 ```http
-  GET http://localhost:3001/users/${id}
+GET http://localhost:3001/users/${id}
 ```
 | Parâmetro   | Tipo       | Descrição                                   |
 | :---------- | :--------- | :------------------------------------------ |
-| `id`      | `string` | **Obrigatório**. O token no header e o ID do user que você quer buscar  |
+| `authentication` | `string` | **Obrigatório**. O Token passado como Bearer da API no Header|
+| `id` | `number` | **Obrigatório**. O ID do user que você quer buscar|
+
+
 ```http
-  POST http://localhost:3001/users
+POST http://localhost:3001/users
 ```
 | Parâmetro   | Tipo       | Descrição                           |
 | :---------- | :--------- | :---------------------------------- |
-| `authentication` | `string` | **Obrigatório**. O Token da API no Header e no corpo da requisição os parametros:
+| `authentication` | `string` | **Obrigatório**. O Token passado como Bearer da API no Header|
+| `corpo` | `json` | **Obrigatório**. No corpo da requisição o user que você quer adicionar, com nome, email e senha|
 ```json
     "nome":"nome",
     "email": "email@email.com",
     "password":"senha qualquer"
-```|
+```
 
 ```http
-  PUT http://localhost:3001/users/
+PUT http://localhost:3001/users/${id}
 ```
 | Parâmetro   | Tipo       | Descrição                                   |
 | :---------- | :--------- | :------------------------------------------ |
-| `id`      | `string` | **Obrigatório**. O token no header e o ID do user que você quer alterar e no corpo da requisição os parametros:
+| `corpo` | `json` | **Obrigatório**. No corpo da requisição o user que você quer alterar, com nome, email e senha|
+| `id` | `number` | **Obrigatório**. O ID do user que você quer alterar|
+| `authentication` | `string` | **Obrigatório**. O Token passado como Bearer da API no Header|
 ```json
     "nome":"nome",
     "email": "email@email.com",
     "password":"senha qualquer"
-    ```|
+```
 
 ```http
-  DELETE http://localhost:3001/users/${id}
+DELETE http://localhost:3001/users/${id}
 ```
 | Parâmetro   | Tipo       | Descrição                                   |
 | :---------- | :--------- | :------------------------------------------ |
-| `id`      | `string` | **Obrigatório**. O token no header e o ID do user que você quer deletar  |
+| `authentication` | `string` | **Obrigatório**. O Token passado como Bearer da API no Header|
+| `id` | `number` | **Obrigatório**. O ID do user que você quer deletar|
+
+<hr>
 
 #### Rotas de Corridas
 ```http
-  GET http://localhost:3001/corridas
+GET http://localhost:3001/corridas
 ```
 | Parâmetro   | Tipo       | Descrição                           |
 | :---------- | :--------- | :---------------------------------- |
-| `authentication` | `string` | **Sem Obrigatioriedade**.| Retorna todas as corridas
+|  |  | Devolve todos os usuários|
 
 ```http
-  GET http://localhost:3001/corridas/${id}
+GET http://localhost:3001/corridas/${id}
 ```
 | Parâmetro   | Tipo       | Descrição                           |
 | :---------- | :--------- | :---------------------------------- |
-| `authentication` | `string` | **Sem Obrigatioriedade**.| Retrona uma corrida pelo ID
+| `id` | `number` | **Obrigatório**. O ID da corrida que você quer buscar|
 
 ```http
-  POST http://localhost:3001/corridas/
+POST http://localhost:3001/corridas/
 ```
 | Parâmetro   | Tipo       | Descrição                           |
 | :---------- | :--------- | :---------------------------------- |
-| `authentication` | `string` | **Sem Obrigatioriedade**.| No corpo da requisição os parametros:
+| `corpo` | `json` | **Obrigatório**. No corpo da requisição a corrida que você quer adicionar, com carro, placa e motorista|
+
 ```json
     "carro":"Fiesta",
     "placa": "AAA0000",
     "motorista":"Fulano"
-    ```|
+```
 
 ```http
-  PUT http://localhost:3001/corridas/${id}
+PUT http://localhost:3001/corridas/${id}
 ```
 | Parâmetro   | Tipo       | Descrição                           |
 | :---------- | :--------- | :---------------------------------- |
-| `authentication` | `string` | **Sem Obrigatioriedade**.| No corpo da requisição os parametros:
+| `id` | `number` | **Obrigatório**. O ID da corrida que você quer buscar|
+| `corpo` | `json` | **Obrigatório**. No corpo da requisição a corrida que você quer alterar, com carro, placa e motorista|
+
 ```json
     "carro":"Fiesta",
     "placa": "AAA0000",
     "motorista":"Fulano"
-    ```|
+```
 
 ```http
   DELETE http://localhost:3001/corridas/${id}
 ```
 | Parâmetro   | Tipo       | Descrição                           |
 | :---------- | :--------- | :---------------------------------- |
-| `authentication` | `string` | **Sem Obrigatioriedade**.|
+| `id` | `number` | **Sem Obrigatioriedade**.|
