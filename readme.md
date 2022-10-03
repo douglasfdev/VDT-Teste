@@ -1,3 +1,17 @@
+## Tabela de Conteúdo
+
+- [Desafio](#desafio-vá-de-taxi)
+- [Techs, Stacks & Skills](#techs-stacks--skills)
+- [Ambiente de Produção](#ambiente-de-produção)
+- [Comandos](#comandos)
+- [Token e verificação](#token-e-verificação)
+- [Pegar o Token de Autenticação](#pegar-o-token-de-autenticação)
+- [Variáveis de Ambiente](#variáveis-de-ambiente)
+- [Rotas de Usuário](#rotas-de-usuário)
+- [Rotas de Corridas](#rotas-de-corridas)
+- [Rotas de Reservas](#rotas-de-reservas)
+
+
 # Desafio Vá de Taxi
 * NodeJS - Node.js é um software de código aberto, multiplataforma, que executa códigos JavaScript no backend/servidor e frontend/interface, baseado no V8 interpretador de JavaScript em C++ do Google, mantido pela fundação Node.js em parceria com a Linux Foundation.
 
@@ -45,7 +59,7 @@ Você pode obter o token na rota `/tokens/` com o método POST, passando os dado
 Você vai precisar passar o token no Header da requisição HTTP como Auth escolhendo a opção Bearer Token.
 #### Pegar o Token de Autenticação
 ```http
-POST /tokens/
+POST http://localhost:3001//tokens/
 ```
 ## Variáveis de Ambiente
 
