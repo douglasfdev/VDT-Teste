@@ -139,8 +139,29 @@ PUT http://localhost:3001/corridas/${id}
 ```
 
 ```http
-  DELETE http://localhost:3001/corridas/${id}
+DELETE http://localhost:3001/corridas/${id}
 ```
 | Parâmetro   | Tipo       | Descrição                           |
 | :---------- | :--------- | :---------------------------------- |
 | `id` | `number` | **Sem Obrigatioriedade**.|
+
+<hr>
+
+#### Rotas de Reservas
+
+```http
+GET http://localhost:3001/users/corrida/${id}/reserves
+```
+| Parâmetro   | Tipo       | Descrição                           |
+| :---------- | :--------- | :---------------------------------- |
+| `id` | `number` | **Obrigatório**. O ID da corrida que você quer buscar|
+| `authentication` | `string` | **Obrigatório**. O Token passado como Bearer da API no Header|
+
+
+```http
+POST http://localhost:3001/users/corrida/${id}/reserve/
+```
+| Parâmetro   | Tipo       | Descrição                           |
+| :---------- | :--------- | :---------------------------------- |
+| `id` | `number` | **Obrigatório**. O ID da corrida que você quer buscar|
+| `authentication` | `string` | **Obrigatório**. O Token passado como Bearer da API no Header|
