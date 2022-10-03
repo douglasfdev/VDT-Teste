@@ -102,7 +102,7 @@ GET http://localhost:3001/corridas
 ```
 | Parâmetro   | Tipo       | Descrição                           |
 | :---------- | :--------- | :---------------------------------- |
-|  |  | Devolve todos os usuários|
+|  |  | Devolve todas as corridas|
 
 ```http
 GET http://localhost:3001/corridas/${id}
