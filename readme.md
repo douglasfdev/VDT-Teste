@@ -59,7 +59,7 @@ Você pode obter o token na rota `/tokens/` com o método POST, passando os dado
 Você vai precisar passar o token no Header da requisição HTTP como Auth escolhendo a opção Bearer Token.
 #### Pegar o Token de Autenticação
 ```http
-POST http://localhost:3001//tokens/
+POST http://localhost:3001/tokens/
 ```
 ## Variáveis de Ambiente
 
